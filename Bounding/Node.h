@@ -6,7 +6,6 @@
 #define RT_NODE_H
 
 //TODO: make summing and stuff more efficient
-// TODO: make objects available as leaf nodes so inside recursion stuff is faster.
 
 #include <vector>
 #include "BoundingBox.h"
@@ -17,37 +16,40 @@ public:
 
     bool rootNode = false;
     bool leafNode = false;
+    int depth = 0;
+
+    void setDepth(int d) { depth = d;}
 
     Node(){
         rootNode = true;
+//        std::cout << "I am root\n";
     }
 
-    explicit Node(Object* object){
+    explicit Node(Object* object, int depth){
         myBB = object->getBB();
         objects.push_back(object);
         leafNode = true;
+        this->depth = depth;
+        std::cout << "node depth is " << this->depth << std::endl;
     }
 
     void addObject(Object* object){     //magic should happen here
-        if(object->getBB().getSurfArea() == 0.0){       //plane: add to root node. This is hacky, but works.
+        if(object->getBB().getSurfArea() == 0.0){       //add planes to root level.
             objects.push_back(object);
-//            std::cout << "plane added.\n";        //well, this seems to be working.
             return;
         }       //magic here.
 
-//        double root_surf_increase = 0;
-//        double curr_surf = sumSurfArea();
-//        double added_surf = sumSurfArea(object->getBB());
-//        root_surf_increase = added_surf - curr_surf;
+        double surf_increase = this->getSurfIncrease(object);
+        Node* most_efficient = this;
 
-        Node* node = new Node(object);
-        children.push_back(node);  //FIXME: does this go out of scope?
-//        std::cout << "object added.\n";
+        for(auto child : children){
+            if (child->getSurfIncrease(object) < surf_increase){
+                surf_increase = child->getSurfIncrease(object);
+                most_efficient = child;
+            }
+        }
 
-
-        //works, mostly
-//        objects.push_back(object);
-
+        most_efficient->addNode(object);
     }
 
     bool rayHits(Point rayStart, Point ray_dir){
@@ -58,17 +60,12 @@ public:
 
     std::vector<Object*> getObjs(Point ray_start, Point ray_dir){   //determines which objects are potentially hit by the ray.
         std::vector<Object*> hitObjects;
-//        std::cout << "returning .\n";
         for(auto obj : objects){        //return object from this node. Root and others.
-//            std::cout << "returning plane.\n";
             hitObjects.push_back(obj);
         }
 
         for(auto node : children) {
-
-            //FIXME: check if ray intersects with / is in the child
             if (node->rayHits(ray_start, ray_dir)) {
-
                 auto childObjs = node->getObjs(ray_start, ray_dir);
                 for (auto obj: childObjs) {
                     hitObjects.push_back(obj);
@@ -88,39 +85,36 @@ private:
     std::vector<Node*> children;
     std::vector<Object*> objects;
 
+    void addNode(Object* object){
+        // if root node
+        if (rootNode){
+            Node* node = new Node(object, depth +1);
+            children.push_back(node);
+            // my bounding box is not changed
+        }  else if (leafNode) {                 // leaf node: make not leaf node, then add both objects as children
+            leafNode = false;
+            children.push_back(new Node(object, depth +1));
+            children.push_back(new Node(objects[0], depth +1));
+            objects.clear();
+            //  Bounding box of current node becomes the combination of the boxes.
+            myBB = children[0]->myBB.combine(children[1]->myBB);
 
-
-
-    double sumSurfArea(){
-        if(myBB.getSurfArea() != 0) return myBB.getSurfArea();  //if not root node, return bounding box s_area
-
-        // root node: calculate surface area of all summed.
-        double sum = 0;
-//        for(auto obj : objects){      //root node only: yet planes have area 0, so they aren't counted.
-//            sum += obj->getBB().getSurfArea();
-//        }
-        for (auto chil : children){
-            sum += chil->myBB.getSurfArea();
+        } else {                                // node, not leaf node: recursively search for best place. could this get messy?
+            std::cout << "adding recursively.\n";
+            this->addObject(object);
         }
-        return sum;
     }
 
-    double sumSurfArea(BoundingBox box){
-        if(myBB.getSurfArea() != 0) {
-            return myBB.combine(box).getSurfArea();
-//            myBB.getSurfArea();  //if not root node, return bounding box s_area
-        }
+    double getSurfIncrease(Object* obj){
+        if(rootNode)
+            return obj->getBB().getSurfArea();
 
-        // root node: calculate surface area of all summed.
-        double sum = box.getSurfArea();
-//        for(auto obj : objects){
-//            sum += obj->getBB().getSurfArea();
-//        }
-        for (auto chil : children){
-            sum += chil->myBB.getSurfArea();
-        }
-        return sum;
+        double orig_surf = myBB.getSurfArea();
+        double next_surf = myBB.combine(obj->getBB()).getSurfArea();
+        return next_surf - orig_surf;
+
     }
+
 };
 
 

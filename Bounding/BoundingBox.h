@@ -57,7 +57,7 @@ public:
         double y_len = y_max - y_min;
         double z_len = z_max - z_min;
 
-        return 2 * ((x_len * y_len) + (x_len * z_len) + (y_len * z_len));
+        return ((x_len * y_len) + (x_len * z_len) + (y_len * z_len));   //actually surface area / 2, you see.
     }
 
     bool inside(Point point){

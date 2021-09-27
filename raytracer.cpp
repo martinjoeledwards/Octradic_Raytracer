@@ -4,10 +4,7 @@
 //
 
 /* TODO:
- *  jitter reflection and transmission rays
- *  bounding volumes
- *  median split algorithm
- *
+ *  jitter strength in material
  *  extra: soft specular and diffuse? Powered specular and diffuse?
  */
 //  axis-aligned box objects, Area lights and shadow calculations, bounding box tree
@@ -51,9 +48,9 @@ int main() {
 
     double aspect_ratio = 1.0 / .75;
 
-    int sampleSubdiv = 1;
-    int num_bounces = 2;
-    int shadowSamples = 2;
+    int sampleSubdiv = 4;
+    int num_bounces = 3;
+    int shadowSamples = 20;
     bool rayJitter = true;
 
     auto x_dim = 320u;       //default 320
@@ -84,7 +81,7 @@ int main() {
 
 //    create materials
     Material reflect(white, white, .1, .1, .1, .7, 10, 0, 0);
-    Material red_mat(red, red, .1, .3, .1, .7, 6, 0, 0);
+    Material red_mat(red, red, .8, .3, .1, .2, 6, 0, 0);
     Material green_mat(green, white, .4, .5, .1, 0, 6, 0, 0);
     Material blue_mat(blue, white, .3, .5, .3, 0, 6, 0, 0);
     Material refractive(white, white, .005, .5, .002, .1, 16, .8, 1.3);
@@ -94,6 +91,7 @@ int main() {
     Sphere blueSphere(&reflect, Point(-.5, 0, .6), .3);
     Sphere greenSphere(&green_mat, Point(.6, 0, 0), .3);
     AABox blueBox(&blue_mat, Point(.2, .2, .2), Point(0, 0, 0));
+    AABox redBox(&red_mat, Point(0, 0, -.1), Point(.2,.2, -.03));
 
     Point p0(100, -.4, -100);
     Point p1(-100, -.4, -100);
@@ -115,12 +113,14 @@ int main() {
 
 // Add objects
 //    myScene.AddObjects(&reflect_plane);
-    myScene.AddObjects(&blueSphere);
 //    myScene.AddObjects(&triangle);
+
+    myScene.AddObjects(&diff_plane);
+    myScene.AddObjects(&blueSphere);
     myScene.AddObjects(&greenSphere);
     myScene.AddObjects(&refSphere);
-    myScene.AddObjects(&diff_plane);
-    myScene.AddObjects(&blueBox);       //addobjects needs to be adjusted to use bounding boxes
+    myScene.AddObjects(&blueBox);
+    myScene.AddObjects(&redBox);
 
     // Add lights
 //    myScene.AddLights(&pointlight);
