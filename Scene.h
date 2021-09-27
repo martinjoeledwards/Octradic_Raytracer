@@ -10,6 +10,7 @@
 #include "Lights/Light.h"
 #include "Color.h"
 #include "Point.h"
+#include "Bounding/Node.h"
 #include <cmath>
 #include <cstdarg>
 
@@ -25,6 +26,7 @@ public:
           Color background = Color(.3, .3, .3)){
         this->ambient = ambient;
         this->background = background;
+//        this->rootNode = Node();
         numBounces = 0;
         shadowSamples = 1;
     }
@@ -35,12 +37,14 @@ public:
      void setShadowSamples(int num){ shadowSamples = num ;}
 
     void AddObjects(Object* t){
-        this->objects.push_back(t);
+//        this->objects.push_back(t);
+        rootNode.addObject(t);
     }
 
     template<typename... Args>
     void AddObjects(Object* t, Args... args){
-         this->objects.push_back(t);
+//         this->objects.push_back(t);
+         rootNode.addObject(t);
         AddObjects(args...);
      }
 
@@ -55,12 +59,13 @@ public:
     }
 
     std::pair<Object*, double> getClosestObject(Point ray_start, Point ray_dir){
+         auto CandObjs = rootNode.getObjs(ray_start, ray_dir);
         double lowest_t = 99999;
         Ray shoot(ray_start, ray_dir);
         int lowest_key = -1;
-        int size = (int)objects.size();
+        int size = (int)CandObjs.size();
         for(int i = 0; i < size; i++){
-            double dist = objects[i]->get_dist(shoot);
+            double dist = CandObjs[i]->get_dist(shoot);
             if(dist < lowest_t && dist != -1){
                 lowest_t = dist;
                 lowest_key = i;
@@ -70,7 +75,7 @@ public:
         if(lowest_key == -1){
             return {NULL, -1};
         }
-        return {objects[lowest_key], lowest_t};
+        return {CandObjs[lowest_key], lowest_t};
      }
 
      // Returns 1 if completely in shadow. Returns 0 if completely lit.
@@ -194,6 +199,8 @@ private:
     std::vector<Light*> lights;
     double shift_amount = 0.0001;
     double jitter_amount = 0.05;        //TODO: make jitter amount reliant on material properties
+
+    Node rootNode;
 };
 
 

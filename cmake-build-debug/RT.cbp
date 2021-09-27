@@ -80,6 +80,24 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/cygdrive/c/Users/marti/Documents/School_Files/Fall_2021/CS_655/RT/Bounding/BoundingBox.cpp">
+			<Option target="RT"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/marti/Documents/School_Files/Fall_2021/CS_655/RT/Bounding/BoundingBox.h">
+			<Option target="RT"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/marti/Documents/School_Files/Fall_2021/CS_655/RT/Bounding/Node.cpp">
+			<Option target="RT"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/marti/Documents/School_Files/Fall_2021/CS_655/RT/Bounding/Node.h">
+			<Option target="RT"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/marti/Documents/School_Files/Fall_2021/CS_655/RT/Bounding/Tree.cpp">
+			<Option target="RT"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/marti/Documents/School_Files/Fall_2021/CS_655/RT/Bounding/Tree.h">
+			<Option target="RT"/>
+		</Unit>
 		<Unit filename="/cygdrive/c/Users/marti/Documents/School_Files/Fall_2021/CS_655/RT/Camera.cpp">
 			<Option target="RT"/>
 		</Unit>

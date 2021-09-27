@@ -129,6 +129,78 @@ RT/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/RT.dir/build.make CMakeFiles/RT.dir/build
 .PHONY : RT/fast
 
+Bounding/BoundingBox.o: Bounding/BoundingBox.cpp.o
+.PHONY : Bounding/BoundingBox.o
+
+# target to build an object file
+Bounding/BoundingBox.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RT.dir/build.make CMakeFiles/RT.dir/Bounding/BoundingBox.cpp.o
+.PHONY : Bounding/BoundingBox.cpp.o
+
+Bounding/BoundingBox.i: Bounding/BoundingBox.cpp.i
+.PHONY : Bounding/BoundingBox.i
+
+# target to preprocess a source file
+Bounding/BoundingBox.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RT.dir/build.make CMakeFiles/RT.dir/Bounding/BoundingBox.cpp.i
+.PHONY : Bounding/BoundingBox.cpp.i
+
+Bounding/BoundingBox.s: Bounding/BoundingBox.cpp.s
+.PHONY : Bounding/BoundingBox.s
+
+# target to generate assembly for a file
+Bounding/BoundingBox.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RT.dir/build.make CMakeFiles/RT.dir/Bounding/BoundingBox.cpp.s
+.PHONY : Bounding/BoundingBox.cpp.s
+
+Bounding/Node.o: Bounding/Node.cpp.o
+.PHONY : Bounding/Node.o
+
+# target to build an object file
+Bounding/Node.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RT.dir/build.make CMakeFiles/RT.dir/Bounding/Node.cpp.o
+.PHONY : Bounding/Node.cpp.o
+
+Bounding/Node.i: Bounding/Node.cpp.i
+.PHONY : Bounding/Node.i
+
+# target to preprocess a source file
+Bounding/Node.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RT.dir/build.make CMakeFiles/RT.dir/Bounding/Node.cpp.i
+.PHONY : Bounding/Node.cpp.i
+
+Bounding/Node.s: Bounding/Node.cpp.s
+.PHONY : Bounding/Node.s
+
+# target to generate assembly for a file
+Bounding/Node.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RT.dir/build.make CMakeFiles/RT.dir/Bounding/Node.cpp.s
+.PHONY : Bounding/Node.cpp.s
+
+Bounding/Tree.o: Bounding/Tree.cpp.o
+.PHONY : Bounding/Tree.o
+
+# target to build an object file
+Bounding/Tree.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RT.dir/build.make CMakeFiles/RT.dir/Bounding/Tree.cpp.o
+.PHONY : Bounding/Tree.cpp.o
+
+Bounding/Tree.i: Bounding/Tree.cpp.i
+.PHONY : Bounding/Tree.i
+
+# target to preprocess a source file
+Bounding/Tree.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RT.dir/build.make CMakeFiles/RT.dir/Bounding/Tree.cpp.i
+.PHONY : Bounding/Tree.cpp.i
+
+Bounding/Tree.s: Bounding/Tree.cpp.s
+.PHONY : Bounding/Tree.s
+
+# target to generate assembly for a file
+Bounding/Tree.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RT.dir/build.make CMakeFiles/RT.dir/Bounding/Tree.cpp.s
+.PHONY : Bounding/Tree.cpp.s
+
 Camera.o: Camera.cpp.o
 .PHONY : Camera.o
 
@@ -594,6 +666,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... RT"
+	@echo "... Bounding/BoundingBox.o"
+	@echo "... Bounding/BoundingBox.i"
+	@echo "... Bounding/BoundingBox.s"
+	@echo "... Bounding/Node.o"
+	@echo "... Bounding/Node.i"
+	@echo "... Bounding/Node.s"
+	@echo "... Bounding/Tree.o"
+	@echo "... Bounding/Tree.i"
+	@echo "... Bounding/Tree.s"
 	@echo "... Camera.o"
 	@echo "... Camera.i"
 	@echo "... Camera.s"

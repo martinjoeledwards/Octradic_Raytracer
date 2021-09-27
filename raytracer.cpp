@@ -64,7 +64,7 @@ int main() {
     std::vector<std::thread> threads;
 
 
-    Point cam_from(1, 1, 1);
+    Point cam_from(1.5, 1.5, 1.5);
     Point cam_at(0, 0, 0);
     Point cam_up(0, 1, 0);
 
@@ -92,12 +92,12 @@ int main() {
 //    create objects
     Sphere refSphere(&refractive, Point(-.51, 0.3, -0.3), .5);
     Sphere blueSphere(&reflect, Point(-.5, 0, .6), .3);
-    Sphere greenSphere(&green_mat, Point(-.4, 0, -1.2), .3);
+    Sphere greenSphere(&green_mat, Point(.6, 0, 0), .3);
     AABox blueBox(&blue_mat, Point(.2, .2, .2), Point(0, 0, 0));
 
-    Point p0(100, 100, -.4);
-    Point p1(-100, 100, -.4);
-    Point p2(0, -100, 3);
+    Point p0(100, -.4, -100);
+    Point p1(-100, -.4, -100);
+    Point p2(0, -.4, 100);
     Triangle triangle(&green_mat, p0, p2, p1);
 
     Plane reflect_plane(&reflect, Point(1, 1, .3), -.4);
@@ -116,8 +116,8 @@ int main() {
 // Add objects
 //    myScene.AddObjects(&reflect_plane);
     myScene.AddObjects(&blueSphere);
-    myScene.AddObjects(&triangle);
-//    myScene.AddObjects(&greenSphere);
+//    myScene.AddObjects(&triangle);
+    myScene.AddObjects(&greenSphere);
     myScene.AddObjects(&refSphere);
     myScene.AddObjects(&diff_plane);
     myScene.AddObjects(&blueBox);       //addobjects needs to be adjusted to use bounding boxes

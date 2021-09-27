@@ -12,12 +12,14 @@ public:
     Sphere(Material *inMat, Point center, double rad) : Object(inMat) {
         this->center = center;
         this->rad = rad;
+        this->bbox = BoundingBox(getBounds().first, getBounds().second);
 //        this->myMat = myMat;
     }
 
 //    Point get_hit_point(Ray inRay) override {
 //        return Point(0, 0, 0);
 //    }
+
 
     double get_dist(Ray inRay) override{
         double b = 2.0 * dot(inRay.getDir(), inRay.getOrigin() - center);
@@ -43,6 +45,11 @@ public:
 
     Point getSurfNorm(Point hit, Ray inRay) override {
         return norm(hit - center);
+    }
+
+    std::pair<Point, Point> getBounds() override {
+        return {Point(center.x - rad, center.y - rad, center.z - rad),
+                Point(center.x + rad, center.y + rad, center.z + rad)};
     }
 
 private:

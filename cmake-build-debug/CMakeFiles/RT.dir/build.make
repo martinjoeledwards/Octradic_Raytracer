@@ -313,6 +313,45 @@ CMakeFiles/RT.dir/Lights/BoxLight.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RT.dir/Lights/BoxLight.cpp.s"
 	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/marti/Documents/School_Files/Fall_2021/CS_655/RT/Lights/BoxLight.cpp -o CMakeFiles/RT.dir/Lights/BoxLight.cpp.s
 
+CMakeFiles/RT.dir/Bounding/Node.cpp.o: CMakeFiles/RT.dir/flags.make
+CMakeFiles/RT.dir/Bounding/Node.cpp.o: ../Bounding/Node.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/marti/Documents/School_Files/Fall_2021/CS_655/RT/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/RT.dir/Bounding/Node.cpp.o"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RT.dir/Bounding/Node.cpp.o -c /cygdrive/c/Users/marti/Documents/School_Files/Fall_2021/CS_655/RT/Bounding/Node.cpp
+
+CMakeFiles/RT.dir/Bounding/Node.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RT.dir/Bounding/Node.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/marti/Documents/School_Files/Fall_2021/CS_655/RT/Bounding/Node.cpp > CMakeFiles/RT.dir/Bounding/Node.cpp.i
+
+CMakeFiles/RT.dir/Bounding/Node.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RT.dir/Bounding/Node.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/marti/Documents/School_Files/Fall_2021/CS_655/RT/Bounding/Node.cpp -o CMakeFiles/RT.dir/Bounding/Node.cpp.s
+
+CMakeFiles/RT.dir/Bounding/Tree.cpp.o: CMakeFiles/RT.dir/flags.make
+CMakeFiles/RT.dir/Bounding/Tree.cpp.o: ../Bounding/Tree.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/marti/Documents/School_Files/Fall_2021/CS_655/RT/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/RT.dir/Bounding/Tree.cpp.o"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RT.dir/Bounding/Tree.cpp.o -c /cygdrive/c/Users/marti/Documents/School_Files/Fall_2021/CS_655/RT/Bounding/Tree.cpp
+
+CMakeFiles/RT.dir/Bounding/Tree.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RT.dir/Bounding/Tree.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/marti/Documents/School_Files/Fall_2021/CS_655/RT/Bounding/Tree.cpp > CMakeFiles/RT.dir/Bounding/Tree.cpp.i
+
+CMakeFiles/RT.dir/Bounding/Tree.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RT.dir/Bounding/Tree.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/marti/Documents/School_Files/Fall_2021/CS_655/RT/Bounding/Tree.cpp -o CMakeFiles/RT.dir/Bounding/Tree.cpp.s
+
+CMakeFiles/RT.dir/Bounding/BoundingBox.cpp.o: CMakeFiles/RT.dir/flags.make
+CMakeFiles/RT.dir/Bounding/BoundingBox.cpp.o: ../Bounding/BoundingBox.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/marti/Documents/School_Files/Fall_2021/CS_655/RT/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/RT.dir/Bounding/BoundingBox.cpp.o"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RT.dir/Bounding/BoundingBox.cpp.o -c /cygdrive/c/Users/marti/Documents/School_Files/Fall_2021/CS_655/RT/Bounding/BoundingBox.cpp
+
+CMakeFiles/RT.dir/Bounding/BoundingBox.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RT.dir/Bounding/BoundingBox.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/marti/Documents/School_Files/Fall_2021/CS_655/RT/Bounding/BoundingBox.cpp > CMakeFiles/RT.dir/Bounding/BoundingBox.cpp.i
+
+CMakeFiles/RT.dir/Bounding/BoundingBox.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RT.dir/Bounding/BoundingBox.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/marti/Documents/School_Files/Fall_2021/CS_655/RT/Bounding/BoundingBox.cpp -o CMakeFiles/RT.dir/Bounding/BoundingBox.cpp.s
+
 # Object files for target RT
 RT_OBJECTS = \
 "CMakeFiles/RT.dir/raytracer.cpp.o" \
@@ -333,7 +372,10 @@ RT_OBJECTS = \
 "CMakeFiles/RT.dir/Lights/SunLight.cpp.o" \
 "CMakeFiles/RT.dir/Lights/PointLight.cpp.o" \
 "CMakeFiles/RT.dir/Objects/AABox.cpp.o" \
-"CMakeFiles/RT.dir/Lights/BoxLight.cpp.o"
+"CMakeFiles/RT.dir/Lights/BoxLight.cpp.o" \
+"CMakeFiles/RT.dir/Bounding/Node.cpp.o" \
+"CMakeFiles/RT.dir/Bounding/Tree.cpp.o" \
+"CMakeFiles/RT.dir/Bounding/BoundingBox.cpp.o"
 
 # External object files for target RT
 RT_EXTERNAL_OBJECTS =
@@ -357,9 +399,12 @@ RT.exe: CMakeFiles/RT.dir/Lights/SunLight.cpp.o
 RT.exe: CMakeFiles/RT.dir/Lights/PointLight.cpp.o
 RT.exe: CMakeFiles/RT.dir/Objects/AABox.cpp.o
 RT.exe: CMakeFiles/RT.dir/Lights/BoxLight.cpp.o
+RT.exe: CMakeFiles/RT.dir/Bounding/Node.cpp.o
+RT.exe: CMakeFiles/RT.dir/Bounding/Tree.cpp.o
+RT.exe: CMakeFiles/RT.dir/Bounding/BoundingBox.cpp.o
 RT.exe: CMakeFiles/RT.dir/build.make
 RT.exe: CMakeFiles/RT.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/c/Users/marti/Documents/School_Files/Fall_2021/CS_655/RT/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Linking CXX executable RT.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/c/Users/marti/Documents/School_Files/Fall_2021/CS_655/RT/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Linking CXX executable RT.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/RT.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
